@@ -1,0 +1,115 @@
+:root {
+    /* ### Primary */
+    --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+    --soft-violet: hsl(273, 75%, 66%);
+    --soft-blue: hsl(240, 73%, 65%);
+    /* ### Neutral */
+    --very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --dark-grayish-blue: hsl(240, 6%, 50%);
+    --light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-size: 20px;
+    font-family: "Kumbh Sans", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(180deg, var(--soft-violet), var(--soft-blue));
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-image: url(./images/illustration-woman-online-desktop.svg);
+    background-size: 50%, 93%;
+    background-position: left -5vw center;
+
+    min-height: 50%;
+    max-height: 75%;
+
+    overflow: auto;
+
+    border-radius: 30px;
+    padding: 15px;
+    max-width: 70%;
+    display: flex;
+}
+
+.image {
+    min-width: 50%;
+}
+
+@media (max-width: 500px) {
+    .card {
+        background-image: none;
+    }
+    .image {
+        min-width: 0%;
+    }    
+  }
+
+.content {
+    margin: 40px
+}
+
+.tab {
+    padding: 20px 0;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--light-grayish-blue);
+}
+
+input {
+    display: none;
+}
+
+.tab-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    cursor: pointer;
+    color: var(--very-dark-grayish-blue);
+}
+
+.tab-label::after {
+    content: "";
+    background: url("./images/icon-arrow-down.svg") no-repeat;
+    background-size: 40%;
+    background-position: center;
+    width: 50px;
+    height: auto;
+    float: top;
+    margin: 0 6px 0 0;
+}
+
+input:checked+.tab-label::after {
+    transform: rotate(180deg);
+}
+
+.tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: var(--dark-grayish-blue);
+    transition: all 0.35s;
+    overflow: hidden;
+}
+
+input:checked~.tab-label {
+    font-weight: 700;
+}
+
+input:checked~.tab-content {
+    max-height: 100vh;
+    padding: 1em;
+}
